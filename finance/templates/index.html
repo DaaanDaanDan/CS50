@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Portfolio</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ stock.symbol }}</td>
+                    <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ stock.name }}</td>
+                    <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ stock.total_shares }}</td>
+                    <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ stock.price }}$</td>
+                    <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ stock.price * stock.total_shares }}$</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td align="right" colspan="4">Cash</td>
+                <td>{{ cash }}</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="4">Total Value</td>
+                <td {white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}>{{ total_value }}$</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

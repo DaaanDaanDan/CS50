@@ -1,2 +1,2 @@
 # CS50
-Harvard CS50 course 
+Harvard CS50 course practices
